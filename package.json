@@ -1,8 +1,8 @@
 {
-  "name": "starter-kit",
-  "description": "Scaffolding for a cockpit module",
+  "name": "typescript-starter-kit",
+  "description": "Scaffolding for a cockpit module - With TypeScript configuration",
   "main": "index.js",
-  "repository": "git@github.com:cockpit/starter-kit.git",
+  "repository": "https://github.com/LucasionGS/starter-kit",
   "author": "",
   "license": "LGPL-2.1",
   "scripts": {
