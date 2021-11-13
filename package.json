@@ -16,6 +16,8 @@
     "@babel/eslint-parser": "^7.13.14",
     "@babel/preset-env": "^7.5.4",
     "@babel/preset-react": "^7.0.0",
+    "@types/react": "^17.0.34",
+    "@types/react-dom": "^17.0.11",
     "babel-loader": "^8.0.6",
     "chrome-remote-interface": "^0.28.0",
     "compression-webpack-plugin": "^6.0.0",
@@ -44,6 +46,8 @@
     "stdio": "^2.1.0",
     "string-replace-loader": "^3.0.0",
     "terser-webpack-plugin": "^5.1.4",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.4.4",
     "webpack": "^5.31.0",
     "webpack-cli": "^4.6.0"
   },

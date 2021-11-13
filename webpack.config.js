@@ -44,6 +44,7 @@ module.exports = {
     resolve: {
         modules: [ "node_modules", path.resolve(__dirname, 'src/lib') ],
         alias: { 'font-awesome': 'font-awesome-sass/assets/stylesheets' },
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.scss', '.css'],
     },
     resolveLoader: {
         modules: [ "node_modules", path.resolve(__dirname, 'src/lib') ],
@@ -52,7 +53,7 @@ module.exports = {
         ignored: /node_modules/,
     },
     entry: {
-        index: "./src/index.js",
+        index: "./src/index.ts",
     },
     // cockpit.js gets included via <script>, everything else should be bundled
     externals: { "cockpit": "cockpit" },
@@ -77,6 +78,11 @@ module.exports = {
 
     module: {
         rules: [
+            {
+                exclude: /node_modules/,
+                use: "ts-loader",
+                test: /\.(ts|tsx)$/
+            },
             {
                 exclude: /node_modules/,
                 use: "babel-loader",

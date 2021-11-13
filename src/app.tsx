@@ -17,33 +17,41 @@
  * along with Cockpit; If not, see <http://www.gnu.org/licenses/>.
  */
 
+//@ts-expect-error
 import cockpit from 'cockpit';
 import React from 'react';
 import { Alert, Card, CardTitle, CardBody } from '@patternfly/react-core';
 
 const _ = cockpit.gettext;
 
-export class Application extends React.Component {
-    constructor() {
-        super();
-        this.state = { hostname: _("Unknown") };
+interface Props {
+}
 
-        cockpit.file('/etc/hostname').watch(content => {
-            this.setState({ hostname: content.trim() });
-        });
-    }
+interface State {
+  hostname: string;
+}
 
-    render() {
-        return (
-            <Card>
-                <CardTitle>Starter Kit</CardTitle>
-                <CardBody>
-                    <Alert
-                        variant="info"
-                        title={ cockpit.format(_("Running on $0"), this.state.hostname) }
-                    />
-                </CardBody>
-            </Card>
-        );
-    }
+export class Application extends React.Component<Props, State> {
+  constructor(props: {}) {
+    super(props);
+    this.state = { hostname: _("Unknown") };
+
+    cockpit.file('/etc/hostname').watch((content: string) => {
+      this.setState({ hostname: content.trim() });
+    });
+  }
+
+  render() {
+    return (
+      <Card>
+        <CardTitle>Web Hosting</CardTitle>
+        <CardBody>
+          <Alert
+            variant="info"
+            title={`Running on ${this.state.hostname}`}
+          />
+        </CardBody>
+      </Card>
+    );
+  }
 }
